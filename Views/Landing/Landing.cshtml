@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Landing";
+    <section class="landing">
+        <div class="landing_left">
+            <img class="landing_logo" src="assets/imgs/reedit.png" alt="reedit logo" />
+        </div>
+        <div class="landing_right">
+            <h1 class="landing_title">Reedit...</h1>
+            <h1 class="landing_title">Reddit but worse...</h1>
+            <form asp-controller="Account" asp-action="Signup" method="post">
+                <button class="landing_button" type="submit">Sign Up</button>
+            </form>
+            <p class="landing_subtext">Already have an account?</p>
+            <form asp-controller="Account" asp-action="Signin" method="post">
+                <button class="landing_button" type="submit">Sign In</button>
+            </form>
+        </div>
+    </section>
+}
