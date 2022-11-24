@@ -5,32 +5,12 @@
 @{
     @model IEnumerable<Link>
     <div class="home">
-        <header class="header">
-            <a class="header_button" asp-controller="Link" asp-action="MyLinks" asp-route-uid=@ViewBag.Uid>My Links</a>
-            <a class="header_button" asp-controller="Link" asp-action="PostLink" asp-route-uid=@ViewBag.Uid>Post Link</a>
-            <a asp-controller="Home" asp-action="Home" asp-route-uid=@ViewBag.Uid><img class="header_logo" src="~/assets/imgs/reedit.png" alt="reedit logo" /></a>
-            <input class="search_bar" placeholder="Search..." />
-            <a class="header_button" asp-controller="Account" asp-action="Signout">Sign Out</a>
-        </header>
+        <partial name="_Header" />
         <section class="links">
             <div class="grid">
                 @foreach (Link link in Model)
                 {
-                    <span class="link">
-                        <a class="link_a" asp-controller="Link" asp-action="ALink" asp-route-uid=@ViewBag.Uid asp-route-lid=@link.Lid>
-                            <span class="infos">
-                                <span class="time">
-                                    @link.Date
-                                </span>
-                                <span class="description">
-                                    @link.Description
-                                </span>
-                            </span>
-                            <span class="media">
-                                <img src="@link.Url" />
-                            </span>
-                        </a>
-                    </span>
+                    <partial name="_LinkCard" model=@link />
                 }
             </div>
         </section>

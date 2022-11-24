@@ -1,0 +1,11 @@
+﻿@inject IHttpContextAccessor HttpContextAccessor
+@{
+    int uid = (int) HttpContextAccessor.HttpContext.Session.GetInt32("Uid");
+    <header class="header">
+        <a class="header_button" asp-controller="Link" asp-action="MyLinks" asp-route-uid=@uid>My Links</a>
+        <a class="header_button" asp-controller="Link" asp-action="PostLink" asp-route-uid=@uid>Post Link</a>
+        <a asp-controller="Home" asp-action="Home" asp-route-uid=@uid><img class="header_logo" src="~/assets/imgs/reedit.png" alt="reedit logo" /></a>
+        <input class="search_bar" placeholder="Search..." />
+        <a class="header_button" asp-controller="Account" asp-action="Signout">Sign Out</a>
+    </header>
+}

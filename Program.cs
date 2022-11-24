@@ -11,6 +11,9 @@ builder.WebHost.ConfigureKestrel(serveroptions =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ReeditContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("MySqlConnection"), Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.6.7-mariadb")).UseLazyLoadingProxies());
+builder.Services.AddSession();
+builder.Services.AddMemoryCache();
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
@@ -24,7 +27,7 @@ if (!app.Environment.IsDevelopment())
 
 //app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseSession();
 app.UseRouting();
 
 app.UseAuthorization();

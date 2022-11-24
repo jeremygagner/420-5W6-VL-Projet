@@ -3,13 +3,7 @@
 *@
 @{
     <div class="center_container">
-        <header class="header">
-            <a class="header_button" asp-controller="Link" asp-action="MyLinks" asp-route-uid=@ViewBag.Uid>My Links</a>
-            <a class="header_button" asp-controller="Link" asp-action="PostLink" asp-route-uid=@ViewBag.Uid>Post Link</a>
-            <a asp-controller="Home" asp-action="Home" asp-route-uid=@ViewBag.Uid><img class="header_logo" src="~/assets/imgs/reedit.png" alt="reedit logo" /></a>
-            <input class="search_bar" placeholder="Search..." />
-            <a class="header_button" asp-controller="Account" asp-action="Signout">Sign Out</a>
-        </header>
+        <partial name="_Header" />
         <form class="post_form" asp-controller="Link" asp-action="Post" method="post">
             <input type="hidden" name="uid" value=@ViewBag.Uid />
             <label class="post_label">Url</label>
